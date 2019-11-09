@@ -8,8 +8,9 @@ class Usuario {
         this.CNPJ_Ong = '';
         this.ID_Ong = '';
         this.DadosBancarios_Ong = '';
-        this.Email_usuario = '';
+        this.Email_Ong = '';
         this.Nome_Ong = '';
+        this.Setor_Ong = '';
         Object.assign(this, objUsuario);
     }
 
