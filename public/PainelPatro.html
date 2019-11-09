@@ -16,11 +16,10 @@
      <table>
          <thead>
              <tr>
+             <th>Nome</th>
              <th>CNPJ</th>
              <th>Email</th>
              <th>Senha</th>
-             <th>Nome</th>
-             <th>Setor</th>
              <th>EDITAR</th>
              <th>DELETAR</th>
             </tr>
@@ -31,7 +30,7 @@
              <tr>
                 <td colspan="5">
                     <a class="waves-effect waves-light btn modal-trigger"  href="#modal-criacao">
-                        CRIAR ONG
+                        Criar Patrocinador
                     </a>
                 </td>
              </tr>
@@ -45,20 +44,16 @@
     <div class="modal-content">
             <div class="row">
               <form id="form-edicao" class="col s12">
-                  <input type="hidden" id="ed-CNPJ" name="CNPJ" />
+                  <input type="hidden" id="ed-Nome" name="Nome" />
                       <div class="row container">
                         <div class="input-field col s12">
-                                <input placeholder="Placeholder" id="ed-CNPJ" name="CNPJ" type="text" class="validate">
-                                <label for="nome">CNPJ</label>
+                                <input placeholder="Placeholder" id="ed-Nome" name="Nome" type="text" class="validate">
+                                <label for="nome">Nome</label>
                         </div>
                         <div class="input-field col s12">
-                                <input placeholder="Placeholder" id="ed-Email" name="Email" type="text" class="validate">
-                                <label for="curso">Email</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="ed-Senha" name="Senha" type="password" class="validate">
-                            <label for="curso">Senha</label>
-                    </div>                     
+                                <input placeholder="Placeholder" id="ed-Patro" name="Patro" type="text" class="validate">
+                                <label for="Patro">Patro</label>
+                        </div>                    
                 </div>
             </form>
         </div>
@@ -76,45 +71,41 @@
                   <form id="form-criacao" class="col s12">
                           <div class="row container">
                             <div class="input-field col s12">
-                              <input placeholder="Placeholder" id="cr-CNPJ" name="CNPJ" type="text" class="validate">
-                              <label for="rm">CNPJ</label>
+                              <input placeholder="Placeholder" id="cr-NomePatro" name="NomePatro" type="text" class="validate">
+                              <label for="Nome">Nome</label>
                             </div>
                             <div class="input-field col s12">
-                                    <input placeholder="Placeholder" id="cr-Email" name="Email" type="text" class="validate">
-                                    <label for="nome">Email</label>
+                                    <input placeholder="Placeholder" id="cr-FotoPatro" name="FotoPatro" type="text" class="validate">
+                                    <label for="FotoPatro">Foto</label>
                             </div>
                             <div class="input-field col s12">
-                                <input placeholder="Placeholder" id="cr-Senha" name="Senha" type="password" class="validate">
-                                <label for="nome">Senha</label>
-                        </div>
-                            <div class="input-field col s12">
-                                    <input placeholder="Placeholder" id="cr-Nome" name="Nome" type="text" class="validate">
-                                    <label for="curso">Nome</label>
+                                    <input placeholder="Placeholder" id="cr-EmailPatro" name="cr-EmailPatro" type="text" class="validate">
+                                    <label for="EmailPatro">Email</label>
                             </div>
                                              <div class="input-field col s12">
-                                                <input placeholder="Placeholder" id="cr-Setor" name="Setor" type="text" class="validate">
-                                                <label for="curso">Setor</label>
+                                                <input placeholder="Placeholder" id="cr-SenhaPatro" name="SenhaPatro" type="password" class="validate">
+                                                <label for="curso">Senha</label>
                             </div>                        
                     </div>
                 </form>
             </div>
         </div>
         <div class="modal-footer">
-                <a onclick="criarOng()" href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat green">CRIAR ONG</a>
+                <a onclick="criarPatro()" href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat green">Criar Patrocinador</a>
         </div>
       </div>
 
       <!-- Modal Structure -->
   <div id="modal-delecao" class="modal">
         <div class="modal-content">
-           <h5>Confirmar Deleção da Ong</h5>
+           <h5>Confirmar Deleção de Patrocinador</h5>
         </div>
         <form id="form-delecao">
-            <input type="hidden" name="rm" id="dl-CNPJ"  />
+            <input type="hidden" name="Patro" id="dl-Patro"  />
         </form>
         <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect btn-flat">NÃO</a>
-                <a onclick="deletarOng()" href="#!" style="color: white" class="modal-close waves-effect waves-red btn-flat red">CONFIRMA DELEÇÃO</a>
+                <a onclick="deletarPatro()" href="#!" style="color: white" class="modal-close waves-effect waves-red btn-flat red">CONFIRMA DELEÇÃO</a>
         </div>
     </div>
 
@@ -133,33 +124,32 @@
         });
     </script>
     <script>
-      let listaDeOng = [];
-      listaDeUsuarios.push({CNPJ: 28984, Email: 'Raquel Jesus',Senha:'2345', Nome: 'Informática', Setor:'ajuda'  });
-      listaDeUsuarios.push({CNPJ: 31055, Email: 'Felipe Chapeu',Senha:'2342', Nome: 'Informática', Setor:'doação'  });
+      let listaDePatro = [];
+      listaDePatro.push({Nome: 28, CNPJ: 'Raquel Jesus', Email: 'Informática', Senha:'ajuda'  });
+      listaDePatro.push({Nome: 31055,CNPJ: 'Felipe Chapeu', Email: 'Informática', Senha:'doação'  });
       let tabela = document.getElementById('tabela');
       function mostraModal(i){
           modalEdicao.open();
-          document.getElementById('ed-CNPJ').value = listaDeOng[i].CNPJ;
-          document.getElementById('ed-Email').value = listaDeOng[i].Email;
-          document.getElementById('ed-Nome').value = listaDeOng[i].Nome;
-          document.getElementById('ed-Setor').value = listaDeOng[i].Setor;
+          document.getElementById('ed-NomePatro').value = listaDePatro[i].Nome;
+          document.getElementById('ed-CNPJPatro').value = listaDePatro[i].CNPJ;
+          document.getElementById('ed-FotoPatro').value = listaDePatro[i].Email;
+          document.getElementById('ed-SenhaPatro').value = listaDePatro[i].Senha;
       }
       function mostraModalDelecao(i){
           modalDelecao.open();
-          document.getElementById('dl-CNPJ').value = listaDeOng[i].rm;
+          document.getElementById('dl-Nome').value = listaDePatro[i].Nome;
       }
       function atualiza(){
-        fetch('/Ong')
+        fetch('/Patro')
         .then(res => res.json())
         .then(dados => {
-            listaDeOng = dados;
-            tabela.innerHTML = listaDeOng.map((Ong,i) => `
+            listaDeUser = dados;
+            tabela.innerHTML = listaDePatro.map((Patro,i) => `
             <tr>
-                    <td>${Ong.CNPJ}</td>
-                    <td>${Ong.Email}</td>
-                    <td>${Ong.Senha}</td>
-                    <td>${Ong.Nome}</td>
-                    <td>${Ong.Setor}</td>
+                    <td>${Patro.Nome}</td>
+                    <td>${Patro.CNPJ}</td>
+                    <td>${Patro.Email}</td>
+                    <td>${Patro.Senha}</td>
                     <td><i onclick="mostraModal(${i})" class="material-icons">edit</i></td>
                     <td><i onclick="mostraModalDelecao(${i})" class="material-icons">close</i></td>
                 </tr>
@@ -169,29 +159,29 @@
       atualiza();
 
 
-    function criarOng(){
+    function criarPatro(){
         const formulario = document.getElementById("form-criacao");
         const data = new URLSearchParams(new FormData(formulario));
-        fetch('/Ong', {
+        fetch('/Patro', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
             body: data
         })
     }
     
-    function editarOng(){
+    function editarPatro(){
         const formulario = document.getElementById("form-edicao");
         const data = new URLSearchParams(new FormData(formulario));
-        fetch('/Ong', {
+        fetch('/Patro', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
             body: data
         })
     }
     
-    function deletarOng(){
-        const rm = document.getElementById('dl-CNPJ').value;
-        fetch('/ong/'+ CNPJ, {
+    function deletarPatro(){
+        const rm = document.getElementById('dl-Nome').value;
+        fetch('/Patro/'+ Nome, {
             method: 'DELETE'
         })
     }
