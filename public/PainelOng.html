@@ -134,8 +134,8 @@
     </script>
     <script>
       let listaDeOng = [];
-      listaDeUsuarios.push({CNPJ: 28984, Email: 'Raquel Jesus',Senha:'2345', Nome: 'Informática', Setor:'ajuda'  });
-      listaDeUsuarios.push({CNPJ: 31055, Email: 'Felipe Chapeu',Senha:'2342', Nome: 'Informática', Setor:'doação'  });
+      listaDeOng.push({CNPJ: 28984, Email: 'Raquel Jesus',Senha:'2345', Nome: 'Informática', Setor:'ajuda'  });
+      listaDeOng.push({CNPJ: 31055, Email: 'Felipe Chapeu',Senha:'2342', Nome: 'Informática', Setor:'doação'  });
       let tabela = document.getElementById('tabela');
       function mostraModal(i){
           modalEdicao.open();
@@ -149,10 +149,11 @@
           document.getElementById('dl-CNPJ').value = listaDeOng[i].rm;
       }
       function atualiza(){
-        fetch('/Ong')
+      /*  fetch('/Ong')
         .then(res => res.json())
         .then(dados => {
             listaDeOng = dados;
+            */
             tabela.innerHTML = listaDeOng.map((Ong,i) => `
             <tr>
                     <td>${Ong.CNPJ}</td>
@@ -164,7 +165,7 @@
                     <td><i onclick="mostraModalDelecao(${i})" class="material-icons">close</i></td>
                 </tr>
             `).join('');
-        });
+        
       }
       atualiza();
 
