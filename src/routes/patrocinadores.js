@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
 const BancoUtils = require('../helpers/bancoUtils');
-const Usuario = require('../models/usuario');
-const UsuarioDAO = require('../models/usuarioDAO');
+const Usuario = require('../models/ong');
+const UsuarioDAO = require('../models/ongDAO');
 const Utils = require('../helpers/utils');
 const segredo = "Solidariedade";
 const routers = express.Router();
@@ -49,7 +49,7 @@ routers.get('/', (req,res) => {
 
 routers.post('/', (req,res) => {
     const usuario = new Usuario(req.body);
-    usuario.senha = usuario.senha || "yourhelp";
+    usuario.senha = usuario.senha || "AnjosDePatas";
     usuario.setarSenha(usuario.senha);
     BancoUtils.insert(usuario, Usuario.tabela, (r) => {
         res.json(r);
