@@ -6,7 +6,7 @@ const BancoUtils = require('../helpers/bancoUtils');
 const Usuario = require('../models/usuario');
 const UsuarioDAO = require('../models/usuarioDAO');
 const Utils = require('../helpers/utils');
-const segredo = "AluninhoFeliz";
+const segredo = "Solidariedade";
 const routers = express.Router();
 const upload = multer({
     storage: multer.diskStorage({
@@ -18,7 +18,7 @@ const upload = multer({
         const usuario = jwt.verify(req.cookies.token, segredo);        
         console.log(usuario);
         let customFileName = usuario.rm;
-            fileExtension = file.originalname.split('.')[1] // get file extension from original file name
+            fileExtension = file.originalname.split('.')[1] 
             cb(null, customFileName + '.' + fileExtension)
          }
       })
@@ -31,10 +31,9 @@ routers.post('/auth', (req,res) => {
    new UsuarioDAO().buscaPorUsuarioESenha(usuario, (resposta) => {
     
     if(resposta.length > 0){
-        const token = jwt.sign({ rm: Utils.criptografa('' + resposta[0].rm), nome: resposta[0].nome, nivel: resposta[0].admin }, segredo, {expiresIn: '1h'});
+        const token = jwt.sign({ senha: Utils.criptografa('' + resposta[0].senha), nome: resposta[0].nome, nivel: resposta[0].admin }, segredo, {expiresIn: '1h'});
         res.cookie('token', token).redirect('/index');
-        //res.json(token);
-    } else {       
+           } else {       
         res.status(301).redirect('/login');
     }
   });
@@ -50,7 +49,7 @@ routers.get('/', (req,res) => {
 
 routers.post('/', (req,res) => {
     const usuario = new Usuario(req.body);
-    usuario.senha = usuario.senha || "anjinho";
+    usuario.senha = usuario.senha || "yourhelp";
     usuario.setarSenha(usuario.senha);
     BancoUtils.insert(usuario, Usuario.tabela, (r) => {
         res.json(r);
@@ -59,13 +58,13 @@ routers.post('/', (req,res) => {
 
 routers.put('/', (req,res) => {
     const usuarioNovo = new Usuario(req.body);
-    BancoUtils.put(usuarioNovo, Usuario.tabela, {key: 'rm', value: usuarioNovo.rm}, (r) => {
+    BancoUtils.put(usuarioNovo, Usuario.tabela, {key: 'id', value: usuarioNovo.id}, (r) => {
         res.json(r);
     });
 })
 
-routers.delete('/:rm', (req,res) => {
-    BancoUtils.delete(Usuario.tabela, {key: 'rm', value: req.params.rm}, (r) => {
+routers.delete('/:id', (req,res) => {
+    BancoUtils.delete(Usuario.tabela, {key: 'id', value: req.params.id}, (r) => {
         res.json(r);
     });
 })
@@ -75,3 +74,4 @@ routers.post('/foto', upload.single('foto'), (req,res) => {
 })
 
 module.exports = routers;
+
