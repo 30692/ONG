@@ -96,6 +96,28 @@ app.get('/auth', function(req, res) {
 app.get('/UserHasLoggedIn', function(req, res) {
   res.json('OK Amiguinho feliz!');
 });
+
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const rotasDeUsuario = require('./src/routes/usuarios');
+const rotasDePatrocinador = require('./src/routes/patrocinadores');
+const rotasDeOng = require('./src/routes/Ongs');
+const path = require('path');
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use( express.static(path.join(__dirname, 'public')) );
+app.get('/',(req,res)=>{
+    res.sendFile('/public/YourHelp.html');
+})
+app.use('/usuarios', rotasDeUsuario);
+app.use('/patrocinadores', rotasDePatrocinador);
+app.use('/Ongs', rotasDeOng);
+
+
  
  
 var port = process.env.PORT || 3000;
