@@ -1,0 +1,36 @@
+{
+  "name": "ong",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/30692/ONG.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/30692/ONG/issues"
+  },
+  "homepage": "https://github.com/30692/ONG#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "fbgraph": "^1.4.4",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "modules": "^0.4.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.17.1",
+    "node": "^13.1.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}
