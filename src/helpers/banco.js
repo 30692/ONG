@@ -6,7 +6,7 @@ const con = mysql.createConnection({
     port: 3000,
     user: 'root',
     password: '1234',
-    database: 'aluninho feliz'
+    database: 'ong'
 });
 // con.query = util.promisify(con.query);
 module.exports = con;

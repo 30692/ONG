@@ -19,4 +19,4 @@ class Usuario {
     }
 }
 
-module.exports = Ong;
+module.exports = Usuario;

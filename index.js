@@ -3,6 +3,9 @@ var express   = require('express')
   const bodyParser = require('body-parser');
   const cors = require('cors');
   const path = require('path');
+const rotasDeUsuario = require('./src/routes/usuarios')
+const rotasDePatrocinador = require('./src/routes/patrocinadores')
+const rotasDeOng = require('./src/routes/ongs')
 var app = express(); 
 var server = require("http").createServer(app);
 
@@ -11,9 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-app.use('/usuarios', rotasDeUsuario);
-app.use('/patrocinadores', rotasDePatrocinador);
-app.use('/Ongs', rotasDeOng);
+
 
 app.get('/painel', (req,res)=>{
     res.sendFile(__dirname + '/public/PainelOng.html');
@@ -22,6 +23,11 @@ app.get('/painel', (req,res)=>{
 app.get('/home', (req,res)=>{
     res.sendFile(__dirname + '/public/PainelUser.html');
 })
+
+
+app.use('/usuarios', rotasDeUsuario);
+app.use('/patrocinadores', rotasDePatrocinador);
+app.use('/Ongs', rotasDeOng);
 
 /**
  * Module dependencies.

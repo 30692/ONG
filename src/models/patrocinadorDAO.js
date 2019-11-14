@@ -12,4 +12,4 @@ class patrocinadorDAO {
    }
 }
 
-module.exports = UsuarioDAO;
+module.exports = patrocinadorDAO;
