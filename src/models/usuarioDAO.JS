@@ -2,7 +2,7 @@ const con = require('../helpers/banco');
 
 class UsuarioDAO {
    buscaPorUsuarioESenha(usuario, cb){
-       const sql = "select * from tb_usuarios where rm=? and senha=?";
+       const sql = "select * from tb_usuarios where id=? and senha=?";
        con.query(sql, [usuario.id, usuario.senha], (err,res) => {
             if(err) throw err;
             else cb(res);

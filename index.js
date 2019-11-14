@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
+app.use('/usuarios', rotasDeUsuario);
+app.use('/patrocinadores', rotasDePatrocinador);
+app.use('/Ongs', rotasDeOng);
+
 app.get('/painel', (req,res)=>{
     res.sendFile(__dirname + '/public/PainelOng.html');
 })
@@ -47,10 +51,12 @@ var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
    app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 }
+
+app.use('/', express.static(path.join(__dirname, 'public')));
  
 // Routes
  
-app.get('/', function(req, res){
+app.get('/fb', function(req, res){
   res.render("index", { title: "click link to connect" });
 });
  
@@ -96,31 +102,11 @@ app.get('/auth', function(req, res) {
 app.get('/UserHasLoggedIn', function(req, res) {
   res.json('OK Amiguinho feliz!');
 });
-
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const rotasDeUsuario = require('./src/routes/usuarios');
-const rotasDePatrocinador = require('./src/routes/patrocinadores');
-const rotasDeOng = require('./src/routes/Ongs');
-const path = require('path');
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
-app.use( express.static(path.join(__dirname, 'public')) );
-app.get('/',(req,res)=>{
-    res.sendFile('/public/YourHelp.html');
-})
-app.use('/usuarios', rotasDeUsuario);
-app.use('/patrocinadores', rotasDePatrocinador);
-app.use('/Ongs', rotasDeOng);
-
-
  
+
  
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Express server listening on port %d", port);
+
 });

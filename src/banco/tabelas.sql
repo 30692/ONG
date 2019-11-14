@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: ong
+-- Host: localhost    Database: ONG
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -30,6 +30,7 @@ CREATE TABLE `ong` (
   `DadosBancarios_Ong` varchar(255) DEFAULT NULL,
   `Senha_Ong` varchar(50) DEFAULT NULL,
   `Setor` varchar(50) DEFAULT NULL,
+  `cidade` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`ID_Ong`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -56,6 +57,7 @@ CREATE TABLE `patrocinador` (
   `Email_Patrocinador` varchar(50) DEFAULT NULL,
   `CNPJ_Patrocinador` varchar(255) DEFAULT NULL,
   `Senha_Patrocinador` varchar(50) DEFAULT NULL,
+  `cidade` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`ID_Patrocinador`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -82,6 +84,7 @@ CREATE TABLE `usuario` (
   `Foto_usuario` varchar(255) DEFAULT NULL,
   `Email_usuario` varchar(50) DEFAULT NULL,
   `Senha_usuario` varchar(50) DEFAULT NULL,
+  `cidade` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`ID_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -104,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-13 19:05:08
+-- Dump completed on 2019-11-13 21:20:35

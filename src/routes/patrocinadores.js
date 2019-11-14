@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
 const BancoUtils = require('../helpers/bancoUtils');
-const Usuario = require('../models/ong');
-const UsuarioDAO = require('../models/ongDAO');
+const Patrocinador = require('../models/patrocinador');
+const patrocinadorDAO = require('../models/patrocinadorDAO');
 const Utils = require('../helpers/utils');
 const segredo = "Solidariedade";
 const routers = express.Router();
@@ -15,9 +15,9 @@ const upload = multer({
      },
      filename: (req, file, cb) => {
          console.log(req.cookies.token);
-        const usuario = jwt.verify(req.cookies.token, segredo);        
-        console.log(usuario);
-        let customFileName = usuario.rm;
+        const patrocinador = jwt.verify(req.cookies.token, segredo);        
+        console.log(patrocinador);
+        let customFileName = patrocinador.id;
             fileExtension = file.originalname.split('.')[1] 
             cb(null, customFileName + '.' + fileExtension)
          }
@@ -26,9 +26,9 @@ const upload = multer({
 
 
 routers.post('/auth', (req,res) => {
-   const usuario = new Usuario(req.body);
-   usuario.setarSenha(req.body.senha);
-   new UsuarioDAO().buscaPorUsuarioESenha(usuario, (resposta) => {
+   const patrocinador = new Patrocinador(req.body);
+   Patrocinador.setarSenha(req.body.senha);
+   new PatrocinadorDAO().buscaPorPatrocinadorESenha(patrocinador, (resposta) => {
     
     if(resposta.length > 0){
         const token = jwt.sign({ senha: Utils.criptografa('' + resposta[0].senha), nome: resposta[0].nome, nivel: resposta[0].admin }, segredo, {expiresIn: '1h'});
@@ -41,30 +41,30 @@ routers.post('/auth', (req,res) => {
 })
 
 routers.get('/', (req,res) => {
-    BancoUtils.select(Usuario.tabela, (usuarios) => {
-        res.json(usuarios);
+    BancoUtils.select(Patrocinador.tabela, (patrocinadores) => {
+        res.json(patrocinadores);
     })
    
 });
 
 routers.post('/', (req,res) => {
-    const usuario = new Usuario(req.body);
-    usuario.senha = usuario.senha || "AnjosDePatas";
-    usuario.setarSenha(usuario.senha);
-    BancoUtils.insert(usuario, Usuario.tabela, (r) => {
+    const patrocinador = new Patrocinador(req.body);
+    patrocinador.senha = patrocinador.senha || "AnjosDePatas";
+    patrocinador.setarSenha(patrocinador.senha);
+    BancoUtils.insert(patrocinador, Patrocinador.tabela, (r) => {
         res.json(r);
     });
 })
 
 routers.put('/', (req,res) => {
-    const usuarioNovo = new Usuario(req.body);
-    BancoUtils.put(usuarioNovo, Usuario.tabela, {key: 'id', value: usuarioNovo.id}, (r) => {
+    const patrocinadorNovo = new Patrocinador(req.body);
+    BancoUtils.put(patrocinadorNovo, patrocinador.tabela, {key: 'id', value: patrocinadorNovo.id}, (r) => {
         res.json(r);
     });
 })
 
 routers.delete('/:id', (req,res) => {
-    BancoUtils.delete(Usuario.tabela, {key: 'id', value: req.params.id}, (r) => {
+    BancoUtils.delete(Patrocinador.tabela, {key: 'id', value: req.params.id}, (r) => {
         res.json(r);
     });
 })
