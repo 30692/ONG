@@ -29,6 +29,9 @@ app.use('/usuarios', rotasDeUsuario);
 app.use('/patrocinadores', rotasDePatrocinador);
 app.use('/Ongs', rotasDeOng);
 
+
+app.use('/', express.static(path.join(__dirname, 'public')));
+
 /**
  * Module dependencies.
  */
@@ -116,3 +119,5 @@ app.listen(port, function() {
   console.log("Express server listening on port %d", port);
 
 });
+
+
