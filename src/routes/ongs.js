@@ -13,6 +13,7 @@ const upload = multer({
        destination: (req, file, cb) => {
           cb(null, path.join(__dirname, '../../public/assets/imagens'))
      },
+
      filename: (req, file, cb) => {
          console.log(req.cookies.token);
         const ong = jwt.verify(req.cookies.token, segredo);        
@@ -24,6 +25,13 @@ const upload = multer({
       })
 })
 
+routers.get('/', (req, res)=> {
+    if(req.cookies.token){
+        res.redirect('/')
+    } else {
+        res.send('nop')
+    }
+})
 
 routers.post('/auth', (req,res) => {
    const ong = new Ong(req.body);
