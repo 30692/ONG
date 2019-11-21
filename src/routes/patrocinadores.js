@@ -24,6 +24,13 @@ const upload = multer({
       })
 })
 
+routers.get('/', (req, res)=> {
+    if(req.cookies.token){
+        res.redirect('/')
+    } else {
+        res.send('nop')
+    }
+})
 
 routers.post('/auth', (req,res) => {
    const patrocinador = new Patrocinador(req.body);
