@@ -25,6 +25,13 @@ const upload = multer({
 })
 
 
+routers.get('/autocompleta',(req,res) => {
+    const valor = req.query.valor;
+    new UsuarioDAO().autocompleta(valor, (respostaDoBanco) => {
+       res.json(respostaDoBanco);
+   })
+});
+
 routers.post('/auth', (req,res) => {
    const usuario = new Usuario(req.body);
    usuario.setarSenha(req.body.senha);

@@ -109,6 +109,7 @@
         </div>
     </div>
 
+    Busca: <input type="text" name="busca" id="busca" onkeyup="autocompleta()">
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -122,6 +123,12 @@
              modalCriacao = instances[1];
              modalDelecao = instances[2];
         });
+    </script>
+    <script>
+        function autocompleta(){
+            const valor = document.getElementById('busca').value;
+            fetch('/usuarios/autocompleta?valor='+valor).then(res => res.json()).then(console.log);
+        }
     </script>
     <script>
       let listaDeUser = [];
