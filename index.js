@@ -111,7 +111,7 @@ app.get('/auth', function(req, res) {
  
 // user gets sent here after being authorized
 app.get('/UserHasLoggedIn', function(req, res) {
-  res.json('OK Amiguinho feliz!');
+  res.sendfile(path.resolve("public/home2.html"));
 });
  
 
