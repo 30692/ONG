@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
+
 
 
 app.get('/painel', (req,res)=>{
@@ -66,7 +68,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 // Routes
  
 app.get('/fb', function(req, res){
-  res.render("index", { title: "click link to connect" });
+  res.sendFile(__dirname + '/public/fb.html');
 });
  
 app.get('/auth', function(req, res) {
