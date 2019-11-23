@@ -12,6 +12,24 @@
     <title>YourHelp</title>
 </head>
 <body>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '947587352283598',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v5.0'
+          });
+        };
+      
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
   <header>
   <nav>
     <div class="nav-wrapper">
@@ -24,6 +42,7 @@
       </ul>
     </div>
     
+
   </nav>
   <ul class="sidenav" id="mobile-demo">
     <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
@@ -98,7 +117,12 @@
     }
     
   </script>
+<div id="fb-root"></div>
 
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v5.0&appId=428464661420550&autoLogAppEvents=1"></script>
+
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a>
+</div>
 </body>
 </html>
     
