@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: ONG
+-- Host: localhost    Database: ong
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -23,16 +23,15 @@ DROP TABLE IF EXISTS `ong`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `ong` (
-  `CNPJ_Ong` varchar(255) DEFAULT NULL,
-  `Email_Ong` varchar(50) DEFAULT NULL,
-  `ID_Ong` int(11) NOT NULL AUTO_INCREMENT,
-  `Nome_Ong` varchar(50) DEFAULT NULL,
-  `DadosBancarios_Ong` varchar(255) DEFAULT NULL,
-  `Senha_Ong` varchar(50) DEFAULT NULL,
-  `Setor` varchar(50) DEFAULT NULL,
-  `cidade` varchar(55) DEFAULT NULL,
-  PRIMARY KEY (`ID_Ong`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `CNPJ` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `dados_bancarios` varchar(255) DEFAULT NULL,
+  `setor` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,14 +51,14 @@ DROP TABLE IF EXISTS `patrocinador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `patrocinador` (
-  `ID_Patrocinador` int(11) NOT NULL AUTO_INCREMENT,
-  `Nome_Patrocinador` varchar(50) DEFAULT NULL,
-  `Email_Patrocinador` varchar(50) DEFAULT NULL,
-  `CNPJ_Patrocinador` varchar(255) DEFAULT NULL,
-  `Senha_Patrocinador` varchar(50) DEFAULT NULL,
-  `cidade` varchar(55) DEFAULT NULL,
-  PRIMARY KEY (`ID_Patrocinador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `CNPJ` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,14 +78,13 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `usuario` (
-  `Nome_usuario` varchar(50) DEFAULT NULL,
-  `ID_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `Foto_usuario` varchar(255) DEFAULT NULL,
-  `Email_usuario` varchar(50) DEFAULT NULL,
-  `Senha_usuario` varchar(50) DEFAULT NULL,
-  `cidade` varchar(55) DEFAULT NULL,
-  PRIMARY KEY (`ID_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-13 21:20:35
+-- Dump completed on 2019-11-27 19:31:08
