@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `ong`
+-- Table structure for table `tb_ongs`
 --
 
-DROP TABLE IF EXISTS `ong`;
+DROP TABLE IF EXISTS `tb_ongs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `ong` (
+CREATE TABLE `tb_ongs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `CNPJ` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -35,22 +35,22 @@ CREATE TABLE `ong` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ong`
+-- Dumping data for table `tb_ongs`
 --
 
-LOCK TABLES `ong` WRITE;
-/*!40000 ALTER TABLE `ong` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ong` ENABLE KEYS */;
+LOCK TABLES `tb_ongs` WRITE;
+/*!40000 ALTER TABLE `tb_ongs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_ongs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `patrocinador`
+-- Table structure for table `tb_patrocinadores`
 --
 
-DROP TABLE IF EXISTS `patrocinador`;
+DROP TABLE IF EXISTS `tb_patrocinadores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `patrocinador` (
+CREATE TABLE `tb_patrocinadores` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -62,22 +62,22 @@ CREATE TABLE `patrocinador` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `patrocinador`
+-- Dumping data for table `tb_patrocinadores`
 --
 
-LOCK TABLES `patrocinador` WRITE;
-/*!40000 ALTER TABLE `patrocinador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `patrocinador` ENABLE KEYS */;
+LOCK TABLES `tb_patrocinadores` WRITE;
+/*!40000 ALTER TABLE `tb_patrocinadores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_patrocinadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `usuario`
+-- Table structure for table `tb_usuarios`
 --
 
-DROP TABLE IF EXISTS `usuario`;
+DROP TABLE IF EXISTS `tb_usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `usuario` (
+CREATE TABLE `tb_usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
@@ -88,12 +88,12 @@ CREATE TABLE `usuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Dumping data for table `tb_usuarios`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `tb_usuarios` WRITE;
+/*!40000 ALTER TABLE `tb_usuarios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -105,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-27 19:31:08
+-- Dump completed on 2019-11-27 22:23:44
