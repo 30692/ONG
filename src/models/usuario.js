@@ -2,7 +2,7 @@ const Utils = require('../helpers/utils');
 
 class Usuario {
     static get tabela() {
-        return 'usuarios';
+        return 'tb_usuarios';
     }
     constructor(objUsuario) {
         this.email = '';
