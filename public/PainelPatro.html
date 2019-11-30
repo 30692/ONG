@@ -12,7 +12,26 @@
   </head>
 
   <body>
-
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">YourHelp</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+              <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
+              <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
+              <li><a href="portfolio.html" onclick="mudaPagina('')">Portfolio</a></li>
+              <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
+          </ul>
+        </div>
+        
+      </nav>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
+        <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
+        <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
+    
+    </ul>
+</nav>
      <table>
          <thead>
              <tr>
@@ -189,5 +208,28 @@
 
 
     </script>
+    <!--JavaScript at end of body for optimized loading-->
+ <script type="text/javascript" src="js/materialize.min.js"></script>  
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, {});
+   
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems2 = document.querySelectorAll('.sidenav');
+    var instances2 = M.Sidenav.init(elems2, {});
+  });
+ </script> 
+  
+  <script>
+    var paginas = ['paginaInicial', 'paginaPortofolio']
+    function mudaPagina(id){
+      paginas.forEach(p => document.getElementById(p).style.display = "none");
+      document.getElementById(id).style.display = "block";
+    }
+    
+  </script>
+
   </body>
 </html>
