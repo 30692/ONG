@@ -1,13 +1,13 @@
-var express   = require('express')
-  , graph     = require('fbgraph');
-  const bodyParser = require('body-parser');
-  const cors = require('cors');
-  const path = require('path');
+const express   = require('express');
+const graph     = require('fbgraph');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const path = require('path');
 const rotasDeUsuario = require('./src/routes/usuarios')
 const rotasDePatrocinador = require('./src/routes/patrocinadores')
 const rotasDeOng = require('./src/routes/ongs')
-var app = express(); 
-var server = require("http").createServer(app);
+const app = express(); 
+const server = require("http").createServer(app);
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
