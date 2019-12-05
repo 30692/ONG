@@ -1,19 +1,19 @@
 const Utils = require('../helpers/utils');
 
 class Patrocinador {
-    static get tabela(){
+    static get tabela() {
         return 'tb_patrocinadores';
     }
-    constructor(objPatrocinador){
+    constructor(objPatrocinador) {
         this.nome = '';
-        this.id = '';
         this.email = '';
         this.CNPJ = '';
-        Object.assign(this, objUsuario);
+        this.cidade = '';
+        Object.assign(this, objPatrocinador);
     }
 
-    setarSenha(senha){
-        this.Senha = Utils.criptografa(senha); 
+    setarSenha(senha) {
+        this.Senha = Utils.criptografa(senha);
     }
 }
 
