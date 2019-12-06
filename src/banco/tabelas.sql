@@ -26,6 +26,7 @@ CREATE TABLE `tb_ongs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `CNPJ` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `dados_bancarios` varchar(255) DEFAULT NULL,
   `setor` varchar(255) DEFAULT NULL,

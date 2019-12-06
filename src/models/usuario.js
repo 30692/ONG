@@ -7,7 +7,6 @@ class Usuario {
     constructor(objUsuario) {
         this.email = '';
         this.nome = '';
-        this.senha = '';
         this.cidade = '';
         Object.assign(this, objUsuario);
     }

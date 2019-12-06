@@ -1,21 +1,22 @@
 const Utils = require('../helpers/utils');
 
 class Usuario {
-    static get tabela(){
+    static get tabela() {
         return 'tb_ongs';
     }
-    constructor(obj){
+    constructor(objOng) {
         this.CNPJ = '';
-        this.id = '';
-        this.DadosBancarios = '';
         this.email = '';
+        this.senha = '';
         this.nome = '';
+        this.dados_bancarios = '';
         this.setor = '';
-        Object.assign(this, objUsuario);
+        this.cidade = '';
+        Object.assign(this, objOng);
     }
 
-    setarSenha(senha){
-        this.Senha = Utils.criptografa(senha); 
+    setarSenha(senha) {
+        this.senha = Utils.criptografa(senha);
     }
 }
 
