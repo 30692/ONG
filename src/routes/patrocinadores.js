@@ -39,26 +39,26 @@ const routers = express.Router();
 // })
 
 routers.get('/', (req, res) => {
-    BancoUtils.select(Patrocinador.tabela, (patrocinadores) => {
-        res.json(patrocinadores);
+    BancoUtils.select(Patrocinador.tabela, (r) => {
+        res.json(r);
     })
 
 });
 
 routers.post('/', (req, res) => {
-    const patrocinador = new Patrocinador(req.body);
-    patrocinador.senha = patrocinador.senha || "AnjosDePatas";
-    patrocinador.setarSenha(patrocinador.senha);
-    BancoUtils.insert(patrocinador, Patrocinador.tabela, (r) => {
+    const patro = new Patrocinador(req.body);
+    patro.senha = patro.senha || "anjinho";
+    patro.setarSenha(patro.senha);
+    BancoUtils.insert(patro, Patrocinador.tabela, (r) => {
         res.json(r);
     });
 })
 
 routers.put('/', (req, res) => {
-    const patrocinadorNovo = new Patrocinador(req.body);
-    BancoUtils.put(patrocinadorNovo, patrocinador.tabela, {
+    const patroNovo = new Patrocinador(req.body);
+    BancoUtils.put(patroNovo, Patrocinador.tabela, {
         key: 'id',
-        value: patrocinadorNovo.id
+        value: patroNovo.id
     }, (r) => {
         res.json(r);
     });

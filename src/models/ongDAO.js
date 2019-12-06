@@ -8,6 +8,14 @@ class ongDAO {
             else cb(res);
         });
     }
+    autocompleta(valor, cb) {
+        const sql = "select * from tb_ongs where nome like ? ";
+        con.query(sql, [valor + '%'], (err, res) => {
+            if (err) throw err;
+            else cb(res);
+        })
+    }
+
 }
 
 module.exports = ongDAO;

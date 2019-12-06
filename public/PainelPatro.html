@@ -10,57 +10,41 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel Administrativo</title>
-<<<<<<< HEAD
-  </head>
-
-  <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">YourHelp</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-                <li><a href="home2.html" onclick="mudaPagina('')">Home</a></li>
-              <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
-              <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
-              <li><a href="portfolio.html" onclick="mudaPagina('')">Portfolio</a></li>
-              <li><a href="blog.html" onclick="mudaPagina('')">Blog</a></li>
-              <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
-          </ul>
-        </div>
-        
-      </nav>
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
-        <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
-        <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
-    
-    </ul>
-</nav>
-     <table>
-         <thead>
-             <tr>
-             <th>Nome</th>
-             <th>CNPJ</th>
-             <th>Email</th>
-             <th>Senha</th>
-             <th>EDITAR</th>
-             <th>DELETAR</th>
-=======
 </head>
 
 <body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">YourHelp</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="home2.html" onclick="mudaPagina('')">Home</a></li>
+                <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
+                <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
+                <li><a href="portfolio.html" onclick="mudaPagina('')">Portfolio</a></li>
+                <li><a href="blog.html" onclick="mudaPagina('')">Blog</a></li>
+                <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
+            </ul>
+        </div>
 
-    <table>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
+        <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
+        <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
+
+    </ul>
+    </nav>
+    <table class="container">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>NOME</th>
-                <th>EMAIL</th>
+                <th>Nome</th>
+                <th>Email</th>
                 <th>CNPJ</th>
-                <th>CIDADE</th>
+                <th>Cidade</th>
                 <th>EDITAR</th>
                 <th>DELETAR</th>
->>>>>>> 8fa7292aa30d81620df32b7ed3946add540ec13c
             </tr>
         </thead>
         <tbody id="tabela">
@@ -131,10 +115,6 @@
                             <label for="CNPJ">CNPJ</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="cr-senha" name="senha" type="text" class="validate">
-                            <label for="senha">senha</label>
-                        </div>
-                        <div class="input-field col s12">
                             <input placeholder="Placeholder" id="cr-cidade" name="cidade" type="text" class="validate">
                             <label for="cidade">cidade</label>
                         </div>
@@ -162,9 +142,9 @@
                 class="modal-close waves-effect waves-red btn-flat red">CONFIRMA DELEÇÃO</a>
         </div>
     </div>
-
-    Busca: <input type="text" name="busca" id="busca" onkeyup="autocompleta()">
-
+    <div class="container">
+        Busca: <input type="text" name="busca" id="busca" onkeyup="autocompleta()">
+    </div>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script>
