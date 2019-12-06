@@ -1,0 +1,31 @@
+Introdução Projeto:
+
+O projeto "YourHelp" tem como intuito unificar as diferentes tipos de Ongs em uma só aplicação, nela você pode criar uma ong e ou patrocinador, 
+ela também tem uma página de portfolio onde você tem acesso a diferentes tipos de cartões e você tambèm pode acessar o blog da YourHelp.
+
+
+Introdução Blog:
+
+O blog YourHelp tem como objetivo demonstrar os diferentes tipos de ongs em que você pode ajudar, tal como hospitais de câncer infantil, animais abandonados, entre outros.
+Ao clicar no botão "Saiba mais" você sera encaminhado para uma outra pagina, onde sera explicado o assunto em que se teve interesse.
+
+
+
+
+
+Erros:
+
+28/11/2019-22:00 Problema na posição dos botões de edição e de exclusão nos paineis de ongs e patrocinadores.
+
+30/11/2019-21:30 Problema na interação com o banco de dados.
+
+04/12/2019-22:10 Problema nos botões "Saiba mais" do blog.
+
+05/12/2019-21:30 Problema nos botôes dos slides.
+
+05/12/2019-21:33 Problema da cor na NavBar.
+
+05/12/2019-21:35 Problema no Contato
+
+05/12/2019-21:35 Problema nas imagens dos slides
+
