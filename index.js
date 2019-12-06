@@ -7,7 +7,7 @@ const rotasDeUsuario = require('./src/routes/usuarios')
 const rotasDePatrocinador = require('./src/routes/patrocinadores')
 const rotasDeOng = require('./src/routes/ongs')
 const app = express();
-const server = require("http").createServer(app);
+// const server = require("http").createServer(app);
 
 app.use(cors());
 app.use(bodyParser.urlencoded({
@@ -30,7 +30,7 @@ app.get('/home', (req, res) => {
 
 
 app.use('/usuarios', rotasDeUsuario);
-app.use('/patrocinadores', rotasDePatrocinador);
+app.use('/patro', rotasDePatrocinador);
 app.use('/ongs', rotasDeOng);
 
 
