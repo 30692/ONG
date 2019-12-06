@@ -1,28 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
-const path = require('path');
 const BancoUtils = require('../helpers/bancoUtils');
 const Patrocinador = require('../models/patrocinador');
 const PatrocinadorDAO = require('../models/patrocinadorDAO');
 const Utils = require('../helpers/utils');
 const segredo = "Solidariedade";
 const routers = express.Router();
-const upload = multer({
-    storage: multer.diskStorage({
-        destination: (req, file, cb) => {
-            cb(null, path.join(__dirname, '../../public/assets/imagens'))
-        },
-        filename: (req, file, cb) => {
-            console.log(req.cookies.token);
-            const patrocinador = jwt.verify(req.cookies.token, segredo);
-            console.log(patrocinador);
-            let customFileName = patrocinador.id;
-            fileExtension = file.originalname.split('.')[1]
-            cb(null, customFileName + '.' + fileExtension)
-        }
-    })
-})
 
 routers.get('/', (req, res) => {
     if (req.cookies.token) {
@@ -35,13 +18,15 @@ routers.get('/', (req, res) => {
 routers.post('/auth', (req, res) => {
     const patrocinador = new Patrocinador(req.body);
     Patrocinador.setarSenha(req.body.senha);
-    new PatrocinadorDAO().buscaPorPatrocinadorESenha(patrocinador, (resposta) => {
+    new PatrocinadorDAO().buscaPorpatrocinadorESenha(patrocinador, (resposta) => {
 
         if (resposta.length > 0) {
             const token = jwt.sign({
                 senha: Utils.criptografa('' + resposta[0].senha),
                 nome: resposta[0].nome,
-                nivel: resposta[0].admin
+                email: resposta[0].email,
+                CNPJ: resposta[0].CNPJ,
+                cidade: resposta[0].cidade
             }, segredo, {
                 expiresIn: '1h'
             });
@@ -88,8 +73,5 @@ routers.delete('/:id', (req, res) => {
     });
 })
 
-routers.post('/foto', upload.single('foto'), (req, res) => {
-    res.redirect('/');
-})
 
 module.exports = routers;

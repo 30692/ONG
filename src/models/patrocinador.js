@@ -8,12 +8,13 @@ class Patrocinador {
         this.nome = '';
         this.email = '';
         this.CNPJ = '';
+        this.senha = ''
         this.cidade = '';
         Object.assign(this, objPatrocinador);
     }
 
     setarSenha(senha) {
-        this.Senha = Utils.criptografa(senha);
+        this.senha = Utils.criptografa(senha);
     }
 }
 

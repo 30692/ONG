@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a onclick="editarong()" href="#!" style="color: white"
+            <a onclick="editarOng()" href="#!" style="color: white"
                 class="modal-close waves-effect waves-blue btn-flat blue">EDITAR</a>
         </div>
     </div>
@@ -122,7 +122,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a onclick="criarong()" href="#!" style="color: white"
+            <a onclick="criarOng()" href="#!" style="color: white"
                 class="modal-close waves-effect waves-green btn-flat green">CRIAR ong</a>
         </div>
     </div>
@@ -137,7 +137,7 @@
         </form>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect btn-flat">NÃO</a>
-            <a onclick="deletarong()" href="#!" style="color: white"
+            <a onclick="deletarOng()" href="#!" style="color: white"
                 class="modal-close waves-effect waves-red btn-flat red">CONFIRMA DELEÇÃO</a>
         </div>
     </div>
@@ -164,19 +164,7 @@
         }
     </script>
     <script>
-        // let listaDeong = [];
-        // listaDeong.push({
-        //     CNPJ: 28,
-        //     Foto: 'Raquel Jesus',
-        //     Email: 'Informática',
-        //     dados_bancarios: 'ajuda'
-        // });
-        // listaDeong.push({
-        //     CNPJ: 31055,
-        //     Foto: 'Felipe hello',
-        //     Email: 'Informática',
-        //     dados_bancarios: 'doação'
-        // });
+        let listaDeOng = [];
         let tabela = document.getElementById('tabela');
 
         function mostraModal(i) {
@@ -184,32 +172,32 @@
             document.getElementById('ed-id').value = listaDeOng[i].id;
             document.getElementById('ed-CNPJ').value = listaDeOng[i].CNPJ;
             document.getElementById('ed-email').value = listaDeOng[i].email;
-            document.getElementById('ed-CNPJ').value = listaDeOng[i].CNPJ;
             document.getElementById('ed-dados_bancarios').value = listaDeOng[i].dados_bancarios;
             document.getElementById('ed-setor').value = listaDeOng[i].setor;
             document.getElementById('ed-nome').value = listaDeOng[i].nome;
+            document.getElementById('ed-cidade').value = listaDeOng[i].cidade;
 
         }
 
         function mostraModalDelecao(i) {
             modalDelecao.open();
-            document.getElementById('dl-id').value = listaDeong[i].id;
+            document.getElementById('dl-id').value = listaDeOng[i].id;
         }
 
         function atualiza() {
             fetch('/ongs')
                 .then(res => res.json())
                 .then(dados => {
-                    listaDeong = dados;
-                    tabela.innerHTML = listaDeong.map((ong, i) => `
+                    listaDeOng = dados;
+                    tabela.innerHTML = listaDeOng.map((ong, i) => `
             <tr>
                     <td>${ong.id}</td>
                     <td>${ong.CNPJ}</td>
                     <td>${ong.email}</td>                  
-                    <td>${ong.CNPJ}</td>
                     <td>${ong.dados_bancarios}</td>
                     <td>${ong.setor}</td>
                     <td>${ong.nome}</td>
+                    <td>${ong.cidade}</td>
                     <td><i onclick="mostraModal(${i})" class="material-icons">edit</i></td>
                     <td><i onclick="mostraModalDelecao(${i})" class="material-icons">close</i></td>
                 </tr>
@@ -219,7 +207,7 @@
         atualiza();
 
 
-        function criarong() {
+        function criarOng() {
             const formulario = document.getElementById("form-criacao");
             const data = new URLSearchParams(new FormData(formulario));
             fetch('/ongs', {
@@ -231,7 +219,7 @@
             }).then(setTimeout(() => atualiza(), 500));
         }
 
-        function editarong() {
+        function editarOng() {
             const formulario = document.getElementById("form-edicao");
             const data = new URLSearchParams(new FormData(formulario));
             fetch('/ongs', {
@@ -243,7 +231,7 @@
             }).then(setTimeout(() => atualiza(), 500));
         }
 
-        function deletarong() {
+        function deletarOng() {
             const id = document.getElementById('dl-id').value;
             fetch('/ongs/' + id, {
                 method: 'DELETE'

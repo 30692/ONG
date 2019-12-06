@@ -18,10 +18,10 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>nome</th>
-                <th>Email</th>
+                <th>NOME</th>
+                <th>EMAIL</th>
                 <th>CNPJ</th>
-                <th>Cidade</th>
+                <th>CIDADE</th>
                 <th>EDITAR</th>
                 <th>DELETAR</th>
             </tr>
@@ -49,19 +49,19 @@
                     <input type="hidden" id="ed-id" name="id" />
                     <div class="row container">
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="ed-nome" name="nome" type="text" class="validate">
+                            <input placeholder="Placeholder" id="cr-nome" name="nome" type="text" class="validate">
                             <label for="nome">nome</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="ed-email" name="email" type="text" class="validate">
-                            <label for="email">Email</label>
+                            <input placeholder="Placeholder" id="cr-email" name="email" type="text" class="validate">
+                            <label for="email">email</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="ed-CNPJ" name="CNPJ" type="text" class="validate">
+                            <input placeholder="Placeholder" id="cr-CNPJ" name="CNPJ" type="text" class="validate">
                             <label for="CNPJ">CNPJ</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="ed-cidade" name="cidade" type="text" class="validate">
+                            <input placeholder="Placeholder" id="cr-cidade" name="cidade" type="text" class="validate">
                             <label for="cidade">cidade</label>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a onclick="editarpatro()" href="#!" style="color: white"
+            <a onclick="editarPatro()" href="#!" style="color: white"
                 class="modal-close waves-effect waves-blue btn-flat blue">EDITAR</a>
         </div>
     </div>
@@ -83,24 +83,19 @@
                     <div class="row container">
                         <div class="input-field col s12">
                             <input placeholder="Placeholder" id="cr-nome" name="nome" type="text" class="validate">
-                            <label for="email">nome</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="cr-email" name="email" type="text" class="validate">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="cr-nome" name="nome" type="text" class="validate">
                             <label for="nome">nome</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="cr-dados_bancarios" name="dados_bancarios" type="text"
-                                class="validate">
-                            <label for="dados_bancarios">dados_bancarios</label>
+                            <input placeholder="Placeholder" id="cr-email" name="email" type="text" class="validate">
+                            <label for="email">email</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="cr-setor" name="setor" type="text" class="validate">
-                            <label for="setor">setor</label>
+                            <input placeholder="Placeholder" id="cr-CNPJ" name="CNPJ" type="text" class="validate">
+                            <label for="CNPJ">CNPJ</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="cr-senha" name="senha" type="text" class="validate">
+                            <label for="senha">senha</label>
                         </div>
                         <div class="input-field col s12">
                             <input placeholder="Placeholder" id="cr-cidade" name="cidade" type="text" class="validate">
@@ -111,7 +106,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a onclick="criarpatro()" href="#!" style="color: white"
+            <a onclick="criarPatro()" href="#!" style="color: white"
                 class="modal-close waves-effect waves-green btn-flat green">CRIAR patro</a>
         </div>
     </div>
@@ -126,7 +121,7 @@
         </form>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect btn-flat">NÃO</a>
-            <a onclick="deletarpatro()" href="#!" style="color: white"
+            <a onclick="deletarPatro()" href="#!" style="color: white"
                 class="modal-close waves-effect waves-red btn-flat red">CONFIRMA DELEÇÃO</a>
         </div>
     </div>
@@ -153,19 +148,7 @@
         }
     </script>
     <script>
-        // let listaDePatro = [];
-        // listaDePatro.push({
-        //     nome: 28,
-        //     Foto: 'Raquel Jesus',
-        //     Email: 'Informática',
-        //     dados_bancarios: 'ajuda'
-        // });
-        // listaDePatro.push({
-        //     nome: 31055,
-        //     Foto: 'Felipe hello',
-        //     Email: 'Informática',
-        //     dados_bancarios: 'doação'
-        // });
+        let listaDePatro = [];
         let tabela = document.getElementById('tabela');
 
         function mostraModal(i) {
@@ -184,7 +167,7 @@
         }
 
         function atualiza() {
-            fetch('/patros')
+            fetch('/patro')
                 .then(res => res.json())
                 .then(dados => {
                     listaDePatro = dados;
@@ -193,10 +176,8 @@
                     <td>${patro.id}</td>
                     <td>${patro.nome}</td>
                     <td>${patro.email}</td>                  
-                    <td>${patro.nome}</td>
-                    <td>${patro.dados_bancarios}</td>
-                    <td>${patro.setor}</td>
-                    <td>${patro.nome}</td>
+                    <td>${patro.CNPJ}</td>
+                    <td>${patro.cidade}</td>
                     <td><i onclick="mostraModal(${i})" class="material-icons">edit</i></td>
                     <td><i onclick="mostraModalDelecao(${i})" class="material-icons">close</i></td>
                 </tr>
@@ -206,10 +187,10 @@
         atualiza();
 
 
-        function criarpatro() {
+        function criarPatro() {
             const formulario = document.getElementById("form-criacao");
             const data = new URLSearchParams(new FormData(formulario));
-            fetch('/patros', {
+            fetch('/patro', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -218,10 +199,10 @@
             }).then(setTimeout(() => atualiza(), 500));
         }
 
-        function editarpatro() {
+        function editarPatro() {
             const formulario = document.getElementById("form-edicao");
             const data = new URLSearchParams(new FormData(formulario));
-            fetch('/patros', {
+            fetch('/patro', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -230,9 +211,9 @@
             }).then(setTimeout(() => atualiza(), 500));
         }
 
-        function deletarpatro() {
+        function deletarPatro() {
             const id = document.getElementById('dl-id').value;
-            fetch('/patros/' + id, {
+            fetch('/patro/' + id, {
                 method: 'DELETE'
             }).then(setTimeout(() => atualiza(), 500));
         }
