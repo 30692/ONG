@@ -1,0 +1,28 @@
+.anjinho {
+    border: 0px;
+    width: 100vw;
+    margin-top: 0;
+    padding: 50vh;
+    background-image: url('../assets/angelface.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important; 
+    background-size: 60vw 80vh !important;
+    background-position: center !important;
+}
+
+@media screen and (max-width: 600px) {
+
+    .anjinho {
+        width: 100vw;
+        margin-top: 30vh;
+        padding: 50vh;
+        background-image: url('../assets/angelface.png') !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important; 
+        background-size: 120vw 80vh !important;
+        background-position: center !important;
+    
+    }
+    
+
+}

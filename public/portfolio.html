@@ -13,44 +13,45 @@
 </head>
 
 <body>
-
-  <div class="card-panel teal lighten-5">
-
-    <body>
-      <nav>
-        <div>
-          <a href="#!" class="brand-logo">Cartões </a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
-            <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
-            <li><a href="portfolio.html" onclick="mudaPagina('')">Portfolio</a></li>
-            <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <ul class="sidenav ml-auto" id="mobile-demo">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="login.html">Login</a></li>
-
-      </ul>
-      <div id="cartoes" class="row">
-
-
-
-      </div>
-
-
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/script.js"></script>
-      <script>
-        fetch('/portfolio')
-          .then(res => res.json())
-          .then(dados => {
-            let conteudo = dados.map(
-              dado => `
+    
+    <div class="card-panel teal lighten-5">
+        <body>
+                <nav>
+                        <div>
+                          <a href="#!" class="brand-logo">Cartões </a>
+                          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                          <ul class="right hide-on-med-and-down">
+                              <li><a href="home2.html" onclick="mudaPagina('')">Home</a></li>
+                            <li><a href="PainelOng.html" onclick="mudaPagina('')">ONGs</a></li>
+                            <li><a href="PainelPatro.html" onclick="mudaPagina('')">Patrocinadores</a></li>
+                            <li><a href="portfolio.html" onclick="mudaPagina('')">Portfolio</a></li>
+                            <li><a href="blog.html" onclick="mudaPagina('')">Blog</a></li>
+                            <li><a href="logout.html" onclick="mudaPagina('')">LogOut</a></li>
+                            </ul>
+                        </div>
+                      </nav>
+                    
+                      <ul class="sidenav ml-auto"  id="mobile-demo">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            
+                                         </ul>
+                   <div id =  "cartoes" class= "row" >
+                                 
+    
+    
+                   </div>                  
+                                                                                        
+            
+            <script type="text/javascript" src="js/materialize.min.js"></script>
+            <script type="text/javascript" src="js/script.js"></script>
+            <script>
+            fetch('/portfolio')
+            .then(res => res.json())
+            .then(dados => {
+             let conteudo = dados.map(
+             dado => `
     
              <div class="row">
         <div class="col s12 m6 l4">
