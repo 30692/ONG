@@ -25,7 +25,13 @@ Erros:
 
 05/12/2019-21:33 Problema da cor na NavBar.
 
-05/12/2019-21:35 Problema no Contato
+05/12/2019-21:35 Problema no Contato.
 
-05/12/2019-21:35 Problema nas imagens dos slides
+05/12/2019-21:35 Problema nas imagens dos slides.
+
+06/12/2019-20:55 O blog não é um blog.
+
+06/12/2019-21:00 
+
+06/12/2019-
 

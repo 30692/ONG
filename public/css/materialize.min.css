@@ -3,6 +3,11 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
+ .ola{
+    color: red;
+    font-family: sans-serif;
+ }
  .bt-az {
     border-color:#46a7f5;
     background:linear-gradient(to bottom, #86c6f8 5%, #46a7f5 100%);
